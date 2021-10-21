@@ -1,0 +1,1 @@
+# This is the readme for Super Cool Card Game!
