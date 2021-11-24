@@ -21,17 +21,17 @@ public class SampleController {
 
     @FXML
     void startHandle(ActionEvent event) {
-
+    	System.out.println("Game Start Button");
     }
 
     @FXML
     void leaderHandle(ActionEvent event) {
-
+    	System.out.println("Leaderboard Button");
     }
 
     @FXML
     void settingsHandle(ActionEvent event) {
-
+    	System.out.println("Settings Button");
     }
 
 }
