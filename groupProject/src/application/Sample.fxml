@@ -12,14 +12,14 @@
          <children>
             <ImageView fitHeight="750.0" fitWidth="750.0" layoutX="14.0" layoutY="14.0">
                <image>
-                  <Image url="@../../../../Pictures/castlebackground.png" />
+                  <Image url="@../../images/gamebackground.png" />
                </image>
             </ImageView>
             <Button fx:id="startBtn" layoutX="224.0" layoutY="230.0" mnemonicParsing="false" onAction="#startHandle" prefHeight="125.0" prefWidth="300.0" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="125.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../Pictures/startgame.png" />
+                        <Image url="@../../images/startgame.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -28,7 +28,7 @@
                <graphic>
                   <ImageView fitHeight="125.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../Pictures/Leaderboard.png" />
+                        <Image url="@../../images/Leaderboard.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -37,14 +37,14 @@
                <graphic>
                   <ImageView fitHeight="125.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../Pictures/settings.png" />
+                        <Image url="@../../images/settings.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
             <ImageView fitHeight="221.0" fitWidth="601.0" layoutX="72.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../Pictures/gametitle.png" />
+                  <Image url="@../../images/gametitle.png" />
                </image>
             </ImageView>
          </children>
