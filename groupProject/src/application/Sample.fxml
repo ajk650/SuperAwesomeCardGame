@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+   <children>
+      <AnchorPane fx:id="mainScreen" layoutX="-14.0" layoutY="-14.0" prefHeight="750.0" prefWidth="750.0">
+         <children>
+            <ImageView fitHeight="750.0" fitWidth="750.0" layoutX="14.0" layoutY="14.0">
+               <image>
+                  <Image url="@../../images/gamebackground.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="startBtn" layoutX="224.0" layoutY="230.0" mnemonicParsing="false" onAction="#startHandle" prefHeight="125.0" prefWidth="300.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="125.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/startgame.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="leaderBtn" layoutX="219.0" layoutY="365.0" mnemonicParsing="false" onAction="#leaderHandle" prefHeight="125.0" prefWidth="300.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="125.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/Leaderboard.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="settingsBtn" layoutX="219.0" layoutY="504.0" mnemonicParsing="false" onAction="#settingsHandle" prefHeight="125.0" prefWidth="300.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="125.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/settings.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <ImageView fitHeight="221.0" fitWidth="601.0" layoutX="72.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/gametitle.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
