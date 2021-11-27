@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.net.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
@@ -17,5 +18,6 @@
       <TextArea fx:id="outcome" layoutX="135.0" layoutY="635.0" prefHeight="116.0" prefWidth="529.0" />
       <TextArea fx:id="player1Card" layoutX="40.0" layoutY="238.0" prefHeight="345.0" prefWidth="289.0" style="text-align: center;" stylesheets="@../bin/application/application.css" />
       <TextArea fx:id="player2Card" layoutX="478.0" layoutY="238.0" prefHeight="345.0" prefWidth="289.0" style="text-align: center;" stylesheets="@../bin/application/application.css" />
+      <Button layoutX="366.0" layoutY="761.0" mnemonicParsing="false" onAction="#endGame" text="end game" />
    </children>
 </AnchorPane>

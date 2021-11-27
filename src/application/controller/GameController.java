@@ -1,14 +1,32 @@
 package application.controller;
 
+
+import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import application.model.Cards;
 import application.model.Game;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 public class GameController {
+	 private Stage stage;
+	 private Scene scene;
     @FXML
     private TextArea player2Card;
 
@@ -20,6 +38,8 @@ public class GameController {
 
     @FXML
     private TextArea outcome;
+    @FXML
+	private StackPane stackPane;
 
     @FXML
     void handleDrawButton(ActionEvent event) {
@@ -63,5 +83,14 @@ public class GameController {
 		
 		
     }
+	@FXML
+	private void endGame(ActionEvent event) throws IOException {
+		  URL url = new File("src/GameOver.fxml").toURI().toURL();
+		  AnchorPane root = FXMLLoader.load(url);
+		  stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		  scene = new Scene(root);
+		  stage.setScene(scene);
+		  stage.show();
+	}
 
 }
