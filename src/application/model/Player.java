@@ -22,8 +22,8 @@ public class Player {
 		this.name = name;
 	}
 
-	public String getScore() {
-		return score;
+	public int getScore() {
+		return Integer.parseInt(score);
 	}
 
 	public void setScore(String score) {
