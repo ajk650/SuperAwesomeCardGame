@@ -14,7 +14,8 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			URL url = new File("src/Game.fxml").toURI().toURL(); 	// url grabs main.fxml
+			URL url = new File("src/application/view/Sample.fxml").toURI().toURL(); 	// url grabs main.fxml
+//			URL url = new File("src/application/view/Game.fxml").toURI().toURL(); 	// url grabs main.fxml
 			AnchorPane root = (AnchorPane)FXMLLoader.load(url);		// anchor pane loads main.fxml
 			Scene scene = new Scene(root,800,800);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

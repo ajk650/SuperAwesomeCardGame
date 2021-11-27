@@ -13,14 +13,14 @@ public class Cards {
 	public Cards(ArrayList<String> arrayType, int value) {
 		super();
 		this.arrayType = arrayType;
-		this.value = value;
+		this.value = value * 5;
 		next = null;
 	}
 	
 	public Cards(String cardType, int value) {
 		super();
 		this.cardType = cardType;
-		this.value = value;
+		this.value = value * 5;
 		next = null;
 	}
 	
