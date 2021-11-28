@@ -24,29 +24,36 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class LeaderboardController {
+	// AnchorPane for main screen
 	@FXML
 	private AnchorPane mainPane2;
 
+	// title label
 	@FXML
 	private Label gameOverLabel;
 
+	// AnchorPane for current screen
 	@FXML
 	private AnchorPane pane;
 
+	// Table: name column
 	@FXML
 	private TableColumn<String, Player> nameColumn;
 
+	// Table view holds leaderboard names and scores
 	@FXML
 	private TableView<Player> leaderboardTable;
 
+	// TableL: score column
 	@FXML
 	private TableColumn<Player, Player> scoreColumn;
 
-	// public ArrayList<Player> players;
-
 	public void initialize() throws FileNotFoundException {
+		// array list of player objects to be displayed in leaderboard
 		ObservableList<Player> players = FXCollections.observableArrayList();
 		try {
+			// Reading player data from a csv file
+			// creates player object from data and adds it to array list
 			File file = new File("src/scores.csv");
 			FileReader fr = new FileReader(file);
 			BufferedReader br = new BufferedReader(fr);
@@ -62,21 +69,19 @@ public class LeaderboardController {
 			ioe.printStackTrace();
 		}
 
+		// Sorting ArrayList by score, descending
 		players.sort(Comparator.comparing(Player::getScore).reversed());
 
+		// initializing the table columns
 		nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 		scoreColumn.setCellValueFactory(new PropertyValueFactory<>("score"));
 
+		// Setting the table to display player arrayList
 		leaderboardTable.setItems((ObservableList<Player>) players);
-
-		leaderboardTable.setStyle("-fx-background-color: black");
-
-		// scoreColumn.setSortType(TableColumn.SortType.ASCENDING);
-		// leaderboardTable.getSortOrder().add(scoreColumn);
-		// leaderboardTable.sort();
 
 	}
 
+	// button switches to main menu screen
 	public void handleMainMenuButton(ActionEvent event) throws IOException {
 		URL url = new File("src/Game.fxml").toURI().toURL();
 		mainPane2 = FXMLLoader.load(url);
