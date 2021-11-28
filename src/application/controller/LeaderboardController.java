@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Comparator;
 
@@ -21,6 +22,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 public class LeaderboardController {
@@ -41,13 +44,22 @@ public class LeaderboardController {
 
 	@FXML
 	private TableColumn<Player, Player> scoreColumn;
+	
+	public MediaPlayer playAudio;
+	public Media audio;
 
 	// public ArrayList<Player> players;
 
 	public void initialize() throws FileNotFoundException {
+		try {
+			playAudio = play(playAudio, "leaderboard.wav");
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		ObservableList<Player> players = FXCollections.observableArrayList();
 		try {
-			File file = new File("src/scores.csv");
+			File file = new File("src/players.csv");
 			FileReader fr = new FileReader(file);
 			BufferedReader br = new BufferedReader(fr);
 			String line = "";
@@ -78,12 +90,27 @@ public class LeaderboardController {
 	}
 
 	public void handleMainMenuButton(ActionEvent event) throws IOException {
-		URL url = new File("src/Game.fxml").toURI().toURL();
+		playAudio.pause();
+		URL url = new File("src/application/view/mainmenu.fxml").toURI().toURL();
 		mainPane2 = FXMLLoader.load(url);
 		Scene scene = new Scene(mainPane2);// pane you are GOING TO show
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();// pane you are ON
 		window.setScene(scene);
 		window.show();
+	}
+	
+	public MediaPlayer play(MediaPlayer playAudio, String audioTrack) throws MalformedURLException {
+		
+		URL url = new File("resources/audio/" + audioTrack).toURI().toURL();
+
+		//audio = new Media("./audio/rick.mp3"); //does not work need to use URL like Anchor pane
+		audio = new Media(url.toString());
+		
+		playAudio = new MediaPlayer(audio);
+		playAudio.setVolume(0.15);
+		playAudio.play();
+//		System.out.println("[**] playAudio play: " + playAudio);
+		return playAudio;
 	}
 
 }

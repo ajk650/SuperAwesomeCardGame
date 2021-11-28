@@ -21,8 +21,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.scene.layout.StackPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 public class GameController implements Initializable{
@@ -31,13 +35,24 @@ public class GameController implements Initializable{
 //
 //    @FXML
 //    private TextArea player1Card;
+	
+	private Stage stage;
+	private Scene scene;
+	public MediaPlayer playAudio;
+	public Media audio;
+    
+	@FXML
+    private TextArea player2Card;
 
     @FXML
     private AnchorPane gameMenu;
     
-    @FXML
-    private Button drawButton;
+//    @FXML
+//    private Button drawButton;
 
+    @FXML
+    private ImageView drawButton;
+    
     @FXML
     private TextArea outcome;
     
@@ -76,9 +91,11 @@ public class GameController implements Initializable{
   	public BigDecimal p2Health = new BigDecimal(String.format("%.2f", maxHealth)); //set to 2 decimal places and start at 1.0
   	public BigDecimal[] pHealth = new BigDecimal[2];
   	public BigDecimal test = new BigDecimal(String.format("%.2f", 0.00)); //set to 2 decimal places and start at 1.0
+    @FXML
+	private StackPane stackPane;
 
     @FXML
-    BigDecimal[] handleDrawButton(ActionEvent event) throws FileNotFoundException {
+    BigDecimal[] handleDrawButton(MouseEvent event) throws FileNotFoundException {
 		Cards p1Card= new Cards();
 		Cards p2Card = new Cards();
 		
@@ -99,6 +116,15 @@ public class GameController implements Initializable{
 			System.out.println("[**] pHealth[1] = p2Health | " + pHealth[1]);
 			pLose = newGame.hpCheck(p1Health,p2Health,pLose);
 			if(pLose == 1) {
+				System.out.println("[**] pLost = " + pLose);
+				pLoseButton.fire();
+			}
+			else if(pLose == 2) {
+				System.out.println("[**] pLost = " + pLose);
+				pLoseButton.fire();
+			}
+			else if(pLose == 3) {
+				System.out.println("[**] pLost = " + pLose);
 				pLoseButton.fire();
 			}
 
@@ -110,6 +136,15 @@ public class GameController implements Initializable{
 			p2Health = newGame.AttackDefend(p1Card, p2Card, p1Image, p1Value, p2Image, p2Value, outcome, p2HP, p1Health, p2Health, p1HText, p2HText, maxHealth);
 			pLose = newGame.hpCheck(p1Health,p2Health,pLose);
 			if(pLose == 1) {
+				System.out.println("[**] pLost = " + pLose);
+				pLoseButton.fire();
+			}
+			else if(pLose == 2) {
+				System.out.println("[**] pLost = " + pLose);
+				pLoseButton.fire();
+			}
+			else if(pLose == 3) {
+				System.out.println("[**] pLost = " + pLose);
 				pLoseButton.fire();
 			}
 			pHealth[0] = p1Health;
@@ -127,6 +162,15 @@ public class GameController implements Initializable{
 			System.out.println("[**] pHealth[1] = p2Health | " + pHealth[1]);
 			pLose = newGame.hpCheck(p1Health,p2Health,pLose);
 			if(pLose == 1) {
+				System.out.println("[**] pLost = " + pLose);
+				pLoseButton.fire();
+			}
+			else if(pLose == 2) {
+				System.out.println("[**] pLost = " + pLose);
+				pLoseButton.fire();
+			}
+			else if(pLose == 3) {
+				System.out.println("[**] pLost = " + pLose);
 				pLoseButton.fire();
 			}
 //			newGame.AttackRun(testCard1,testCard2, player1Card, player2Card, outcome);
@@ -142,6 +186,15 @@ public class GameController implements Initializable{
 			System.out.println("[**] pHealth[1] = p2Health | " + pHealth[1]);
 			pLose = newGame.hpCheck(p1Health,p2Health,pLose);
 			if(pLose == 1) {
+				System.out.println("[**] pLost = " + pLose);
+				pLoseButton.fire();
+			}
+			else if(pLose == 2) {
+				System.out.println("[**] pLost = " + pLose);
+				pLoseButton.fire();
+			}
+			else if(pLose == 3) {
+				System.out.println("[**] pLost = " + pLose);
 				pLoseButton.fire();
 			}
 //			newGame.DefendAttack(testCard1,testCard2, player1Card, player2Card, outcome);
@@ -157,6 +210,15 @@ public class GameController implements Initializable{
 			System.out.println("[**] pHealth[1] = p2Health | " + pHealth[1]);
 			pLose = newGame.hpCheck(p1Health,p2Health,pLose);
 			if(pLose == 1) {
+				System.out.println("[**] pLost = " + pLose);
+				pLoseButton.fire();
+			}
+			else if(pLose == 2) {
+				System.out.println("[**] pLost = " + pLose);
+				pLoseButton.fire();
+			}
+			else if(pLose == 3) {
+				System.out.println("[**] pLost = " + pLose);
 				pLoseButton.fire();
 			}
 //			pHealth[0] = p1Health;
@@ -174,6 +236,15 @@ public class GameController implements Initializable{
 			System.out.println("[**] pHealth[1] = p2Health | " + pHealth[1]);
 			pLose = newGame.hpCheck(p1Health,p2Health,pLose);
 			if(pLose == 1) {
+				System.out.println("[**] pLost = " + pLose);
+				pLoseButton.fire();
+			}
+			else if(pLose == 2) {
+				System.out.println("[**] pLost = " + pLose);
+				pLoseButton.fire();
+			}
+			else if(pLose == 3) {
+				System.out.println("[**] pLost = " + pLose);
 				pLoseButton.fire();
 			}
 //			newGame.DefendRun(testCard1,testCard2, player1Card, player2Card, outcome);
@@ -189,6 +260,15 @@ public class GameController implements Initializable{
 			System.out.println("[**] pHealth[1] = p2Health | " + pHealth[1]);
 			pLose = newGame.hpCheck(p1Health,p2Health,pLose);
 			if(pLose == 1) {
+				System.out.println("[**] pLost = " + pLose);
+				pLoseButton.fire();
+			}
+			else if(pLose == 2) {
+				System.out.println("[**] pLost = " + pLose);
+				pLoseButton.fire();
+			}
+			else if(pLose == 3) {
+				System.out.println("[**] pLost = " + pLose);
 				pLoseButton.fire();
 			}
 //			newGame.RunRun(testCard1,testCard2, player1Card, player2Card, outcome);
@@ -204,10 +284,17 @@ public class GameController implements Initializable{
 			System.out.println("[**] pHealth[1] = p2Health | " + pHealth[1]);
 			pLose = newGame.hpCheck(p1Health,p2Health,pLose);
 			if(pLose == 1) {
+				System.out.println("[**] pLost = " + pLose);
 				pLoseButton.fire();
 			}
-			pHealth[0] = p1Health;
-			pHealth[1] = p2Health;
+			else if(pLose == 2) {
+				System.out.println("[**] pLost = " + pLose);
+				pLoseButton.fire();
+			}
+			else if(pLose == 3) {
+				System.out.println("[**] pLost = " + pLose);
+				pLoseButton.fire();
+			}
 //			newGame.RunRun(testCard1,testCard2, player1Card, player2Card, outcome);
 	    }
 		else if( p1Card.cardType == "RUN" &&  p2Card.cardType == "RUN" )
@@ -220,7 +307,17 @@ public class GameController implements Initializable{
 			System.out.println("[**] pHealth[0] = p1Health | " + pHealth[0]);
 			System.out.println("[**] pHealth[1] = p2Health | " + pHealth[1]);
 			pLose = newGame.hpCheck(p1Health,p2Health,pLose);
+			// p1 lost
 			if(pLose == 1) {
+				System.out.println("[**] pLost = " + pLose);
+				pLoseButton.fire();
+			}
+			else if(pLose == 2) {
+				System.out.println("[**] pLost = " + pLose);
+				pLoseButton.fire();
+			}
+			else if(pLose == 3) {
+				System.out.println("[**] pLost = " + pLose);
 				pLoseButton.fire();
 			}
 //			newGame.RunRun(testCard1,testCard2, player1Card, player2Card, outcome);
@@ -229,6 +326,15 @@ public class GameController implements Initializable{
 		
 		
     }
+//	@FXML
+//	private void endGame(ActionEvent event) throws IOException {
+//		  URL url = new File("src/GameOver.fxml").toURI().toURL();
+//		  AnchorPane root = FXMLLoader.load(url);
+//		  stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//		  scene = new Scene(root);
+//		  stage.setScene(scene);
+//		  stage.show();
+//	}
 
     @FXML
     private void handlePLose(ActionEvent event) throws IOException {
@@ -237,10 +343,11 @@ public class GameController implements Initializable{
     	URL url = new File("src/application/view/GameOver.fxml").toURI().toURL();
     	FXMLLoader parent = new FXMLLoader(url);
         Parent root = parent.load();
-        
+        playAudio.pause();
         GameOverController go = parent.getController();
+        go.hpScore(pLose, pHealth);
         Scene scene = new Scene(root);	
-        scene.getStylesheets().add(getClass().getResource("src/application/application.css").toExternalForm());
+//        scene.getStylesheets().add(getClass().getResource("src/application/application.css").toExternalForm());
 //        scene.getStylesheets().add("src/application/application.css");
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
         window.setScene(scene);
@@ -249,7 +356,6 @@ public class GameController implements Initializable{
     
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
 		p1HP.setStyle("-fx-accent: #1dc582");		//can also use hex values
 		p1HP.setProgress(p1Health.doubleValue()); 	// range from 0.0 - 1.0
 		p2HP.setStyle("-fx-accent: #1dc582");		//can also use hex values
@@ -257,6 +363,25 @@ public class GameController implements Initializable{
 		if((test.doubleValue()*100) <= 0) {
 			System.out.println("Test game over | test = " + test.doubleValue()*100 + " < 0");
 		}
+		try {
+			playAudio = play(playAudio, "battletheme.mp3");
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
+	
+	public MediaPlayer play(MediaPlayer playAudio, String audioTrack) throws MalformedURLException {
+		
+		URL url = new File("resources/audio/" + audioTrack).toURI().toURL();
 
+		//audio = new Media("./audio/rick.mp3"); //does not work need to use URL like Anchor pane
+		audio = new Media(url.toString());
+		
+		playAudio = new MediaPlayer(audio);
+		playAudio.setVolume(0.15);
+		playAudio.play();
+//		System.out.println("[**] playAudio play: " + playAudio);
+		return playAudio;
+	}
 }

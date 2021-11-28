@@ -35,7 +35,7 @@ public class Game {
 //	public void AttackAttack(Cards testCard1, Cards testCard2, TextArea player1Card, TextArea player2Card, TextArea outcome) {
 		if( p1Card.value > p2Card.value) {
 //			System.out.println("[**] Player1 hits for " + testCard1.value + "HP!");
-//			System.out.println("[**] Player2 hits for " + testCard2.value + "HP!");
+//			System.out.println("[**] Player2 hits for " + testCard2.value + "hp!");
 //			System.out.println("[**] Player1 > Player2 | " + testCard1.value + " > " + testCard2.value);
 //			System.out.println("[**] Player1 wins round");
 			System.out.println("[**] P1 Starting HP: " + p1Health.multiply(y));
@@ -63,8 +63,8 @@ public class Game {
 //	    	p1HText.setText("Player 1 - " + (p1Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 //	    	p2HText.setText("Player 2 - " + (p2Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 			outcome.setText(
-					"Player1 hits for " + p1Card.value + "HP! \r\n" +
-					"Player2 hits for " + p2Card.value + "HP! \r\n" + 
+					"Player1 hits for " + p1Card.value + "hp! \r\n" +
+					"Player2 hits for " + p2Card.value + "hp! \r\n" + 
 					"Player1 wins the round!"
 			);
 			pHealth[0] = p1Health;
@@ -99,8 +99,8 @@ public class Game {
 //	    	p1HText.setText("Player 1 - " + (p1Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 //	    	p2HText.setText("Player 2 - " + (p2Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 	    	outcome.setText(
-					"Player1 hits for " + p1Card.value + "HP! \r\n" +
-					"Player2 hits for " + p2Card.value + "HP! \r\n" + 
+					"Player1 hits for " + p1Card.value + "hp! \r\n" +
+					"Player2 hits for " + p2Card.value + "hp! \r\n" + 
 					"Player2 wins the round!"
 			);
 			pHealth[0] = p1Health;
@@ -135,9 +135,9 @@ public class Game {
 //	    	p1HText.setText("Player 1 - " + (p1Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 //	    	p2HText.setText("Player 2 - " + (p2Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 	    	outcome.setText(
-					"Player1 hits for " + p1Card.value + "HP! \r\n" +
-					"Player2 hits for " + p2Card.value + "HP! \r\n" + 
-					"TIE"
+					"Player1 hits for " + p1Card.value + "hp! \r\n" +
+					"Player2 hits for " + p2Card.value + "hp! \r\n" + 
+					"tie"
 			);
 			pHealth[0] = p1Health;
 			pHealth[1] = p2Health;
@@ -183,8 +183,8 @@ public class Game {
 //	    	p1HText.setText("Player 1 - " + (p1Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 //	    	p2HText.setText("Player 2 - " + (p2Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 			outcome.setText(
-					"Player1 hits for " + p1Card.value + "HP! \r\n" +
-					"Player2 defends for " + p2Card.value + "HP! \r\n" + 
+					"Player1 hits for " + p1Card.value + "hp! \r\n" +
+					"Player2 defends for " + p2Card.value + "hp! \r\n" + 
 					"Player2 absorbs " + p2Card.value + " damage but still takes " + dmgDiff1 + " damage!\n" + 
 					"Player1 wins the round!"
 			);
@@ -219,8 +219,8 @@ public class Game {
 //	    	p1HText.setText("Player 1 - " + (p1Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 //	    	p2HText.setText("Player 2 - " + (p2Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 			outcome.setText(
-					"Player1 hits for " + p1Card.value + "HP! \r\n" +
-					"Player2 defends for " + p2Card.value + "HP! \r\n" +
+					"Player1 hits for " + p1Card.value + "hp! \r\n" +
+					"Player2 defends for " + p2Card.value + "hp! \r\n" +
 					"Player2 absorbs " + p1Card.value + " damage\n" +
 					"Player2 wins the round!"
 			);
@@ -255,10 +255,10 @@ public class Game {
 //	    	p1HText.setText("Player 1 - " + (p1Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 //	    	p2HText.setText("Player 2 - " + (p2Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 			outcome.setText(
-					"Player1 hits for " + p1Card.value + "HP! \r\n" +
-					"Player2 defends for " + p2Card.value + "HP! \r\n" + 
+					"Player1 hits for " + p1Card.value + "hp! \r\n" +
+					"Player2 defends for " + p2Card.value + "hp! \r\n" + 
 					"Player2 absorbs " + p1Card.value + " damage!\n" + 
-					"TIE"
+					"tie"
 			);	
 		}
 		
@@ -297,7 +297,7 @@ public class Game {
 //	    	p1HText.setText("Player 1 - " + (p1Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 //	    	p2HText.setText("Player 2 - " + (p2Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 			outcome.setText(
-					"Player1 hits for " + p1Card.value + "HP! \r\n" +
+					"Player1 hits for " + p1Card.value + "hp! \r\n" +
 					"Player2 tries to run but can't escape the oncoming attack!\n" + 
 					"Player1 wins the round!"
 			);
@@ -331,7 +331,7 @@ public class Game {
 //	    	p1HText.setText("Player 1 - " + (p1Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 //	    	p2HText.setText("Player 2 - " + (p2Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 			outcome.setText(
-					"Player1 tries to hit for " + p1Card.value + "HP but misses! \r\n" +
+					"Player1 tries to hit for " + p1Card.value + "hp but misses! \r\n" +
 					"Player2 escapes the oncoming attack! \r\n" + 
 					"Player2 wins the round!"
 			);
@@ -364,9 +364,9 @@ public class Game {
 //	    	p1HText.setText("Player 1 - " + (p1Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 //	    	p2HText.setText("Player 2 - " + (p2Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 			outcome.setText(
-					"Player1 tries to hit for " + p1Card.value + "HP but misses! \r\n" +
+					"Player1 tries to hit for " + p1Card.value + "hp but misses! \r\n" +
 					"Player2 dodges the oncoming attack! \r\n" + 
-					"TIE"
+					"tie"
 			);	
 		}
 		return p2Health;
@@ -406,8 +406,8 @@ public class Game {
 //	    	p1HText.setText("Player 1 - " + (p1Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 //	    	p2HText.setText("Player 2 - " + (p2Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 			outcome.setText(
-					"Player1 defends for " + p1Card.value + "HP! \r\n" +
-					"Player2 hits for " + p2Card.value + "HP! \r\n" + 
+					"Player1 defends for " + p1Card.value + "hp! \r\n" +
+					"Player2 hits for " + p2Card.value + "hp! \r\n" + 
 					"Player1 absorbs " + p2Card.value + " damage!\r\n" + 
 					"Player1 wins the round!"
 			);
@@ -443,8 +443,8 @@ public class Game {
 //	    	p1HText.setText("Player 1 - " + (p1Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 //	    	p2HText.setText("Player 2 - " + (p2Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 			outcome.setText(
-					"Player1 defends for " + p1Card.value + "HP! \r\n" +
-					"Player2 hits for " + p2Card.value + "HP! \r\n" + 
+					"Player1 defends for " + p1Card.value + "hp! \r\n" +
+					"Player2 hits for " + p2Card.value + "hp! \r\n" + 
 					"Player1 absorbs " + p1Card.value + " damage " + "but still takes " + Math.abs(dmgDiff1) + " damage!\n"+ 
 					"Player2 wins the round!"
 			);
@@ -480,7 +480,7 @@ public class Game {
 					"Player1 defends for " + p1Card.value + "HP! \r\n" +
 					"Player2 hits for " + p2Card.value + "HP! \r\n" + 
 					"Player1 absorbs " + p1Card.value + " damage!\n" + 
-					"TIE"
+					"tie"
 			);	
 		}
 		
@@ -513,8 +513,8 @@ public class Game {
 //    	p1HText.setText("Player 1 - " + (p1Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 //    	p2HText.setText("Player 2 - " + (p2Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 		outcome.setText(
-				"Player1 defends for " + p1Card.value + "HP! \r\n" +
-				"Player2 defends for " + p2Card.value + "HP! \r\n" + 
+				"Player1 defends for " + p1Card.value + "hp! \r\n" +
+				"Player2 defends for " + p2Card.value + "hp! \r\n" + 
 				"Both players defend! No damage taken!"
 		);
 	}
@@ -548,7 +548,7 @@ public class Game {
 //	    	p1HText.setText("Player 1 - " + (p1Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 //	    	p2HText.setText("Player 2 - " + (p2Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 			outcome.setText(
-					"Player1 defends for " + p1Card.value + "HP! \r\n" +
+					"Player1 defends for " + p1Card.value + "hp! \r\n" +
 					"Player2 tries to run but fails to escape!\n	" + 
 					"Player1 wins the round!"
 			);
@@ -580,7 +580,7 @@ public class Game {
 //	    	p1HText.setText("Player 1 - " + (p1Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 //	    	p2HText.setText("Player 2 - " + (p2Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 			outcome.setText(
-					"Player1 defends for " + p1Card.value + "HP! \r\n" +
+					"Player1 defends for " + p1Card.value + "hp! \r\n" +
 					"Player2 escapes the oncoming attack! \r\n" + 
 					"Player2 wins the round!"
 			);
@@ -612,9 +612,9 @@ public class Game {
 //	    	p1HText.setText("Player 1 - " + (p1Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 //	    	p2HText.setText("Player 2 - " + (p2Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 			outcome.setText(
-					"Player1 tries to defend for " + p1Card.value + "HP but misses! \r\n" +
+					"Player1 tries to defend for " + p1Card.value + "hp but misses! \r\n" +
 					"Player2 tries to run but fails to escape! \r\n" + 
-					"TIE"
+					"tie"
 			);	
 		}
 	}
@@ -650,7 +650,7 @@ public class Game {
 //	    	p2HText.setText("Player 2 - " + (p2Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 			outcome.setText(
 					"Player1 escapes the oncoming attack! \n" +
-					"Player2 hits for " + p2Card.value + " HP but misses!\n" + 
+					"Player2 hits for " + p2Card.value + " hp but misses!\n" + 
 					"Player1 gets away safely!"
 			);
 		}
@@ -684,7 +684,7 @@ public class Game {
 //	    	p2HText.setText("Player 2 - " + (p2Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 			outcome.setText(
 					"Player1 can't escape the oncoming attack! \n" + 
-					"Player2 hits for " + p2Card.value + " HP!\n" +
+					"Player2 hits for " + p2Card.value + " hp!\n" +
 					"Player2 wins the round!"
 			);
 		}
@@ -717,7 +717,7 @@ public class Game {
 //	    	p2HText.setText("Player 2 - " + (p2Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 			outcome.setText(
 					"Player1 dodges the oncoming attack!\n" + 
-					"Player2 hits for " + p2Card.value + " HP but misses!\n" +
+					"Player2 hits for " + p2Card.value + " hp but misses!\n" +
 					"Player1 dodges Player2's attack!"
 			);
 		}
@@ -755,7 +755,7 @@ public class Game {
 //	    	p2HText.setText("Player 2 - " + (p2Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(int)(maxHealth*100));
 	    	outcome.setText(
 					"Player1 tries to run!\n" +
-					"Player2 defends for " + p2Card.value + "HP! \r\n" + 
+					"Player2 defends for " + p2Card.value + "hp! \r\n" + 
 					"No damage taken!"
 			);
 	}
@@ -816,15 +816,7 @@ public class Game {
 		 }
 		 else if((p2Health.doubleValue()*100) <= 0){
 			 System.out.println("[**] Player 2 has FALLEN. Player 1 WINS! GAME OVER!");
-			 pLose = 1;
-		 }
-		 else if((p1Health.doubleValue()*100) <= 0){
-			 System.out.println("[**] Player 1 has FALLEN. Player 2 WINS! GAME OVER!");
-			 pLose = 1;
-		 }
-		 else if((p2Health.doubleValue()*100) <= 0){
-			 System.out.println("[**] Player 2 has FALLEN. Player 1 WINS! GAME OVER!");
-			 pLose = 1;
+			 pLose = 2;
 		 }
 		 else if(((p1Health.doubleValue()*100) <= 0) && ((p2Health.doubleValue()*100) <= 0)) {
 			 // in (-) numbers, if p1Health is smaller than p2Health | i.e. -0.20 < -0.15 | p1 loses
@@ -835,11 +827,11 @@ public class Game {
 			// in (-) numbers, if p2Health is smaller than p1Health | i.e. -0.15 > -0.20 | p2 loses
 			 else if((p2Health.doubleValue()*100) < (p1Health.doubleValue()*100)) {
 				 System.out.println("[**] Player 2 has FALLEN. Player 1 WINS! GAME OVER!");
-				 pLose = 1;
+				 pLose = 2;
 			 }
 			 else if((p2Health.doubleValue()*100) == (p1Health.doubleValue()*100)) {
 				 System.out.println("[**] BOTH Players have FALLEN. No winner! GAME OVER!");
-				 pLose = 1;
+				 pLose = 3;
 			 }
 		 }
 		 return pLose;

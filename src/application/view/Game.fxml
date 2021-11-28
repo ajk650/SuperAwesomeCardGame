@@ -15,9 +15,15 @@
             <Image url="@../../../pictures/background.png" />
          </image>
       </ImageView>
-      <Button fx:id="drawButton" layoutX="366.0" layoutY="397.0" mnemonicParsing="false" onAction="#handleDrawButton" prefHeight="38.0" prefWidth="71.0" text="Draw" />
-      <TextField alignment="CENTER" layoutX="190.0" layoutY="35.0" prefHeight="76.0" prefWidth="426.0" text="DUEL" />
-      <TextArea fx:id="outcome" layoutX="112.0" layoutY="635.0" prefHeight="126.0" prefWidth="575.0" style="-fx-text-alignment: center;" stylesheets="@../application.css" />
+      <ImageView fx:id="drawButton" fitHeight="45.0" fitWidth="137.0" layoutX="341.0" layoutY="394.0" onMousePressed="#handleDrawButton" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../pictures/draw.png" />
+         </image>
+      </ImageView>
+      <TextArea fx:id="outcome" layoutX="112.0" layoutY="635.0" prefHeight="126.0" prefWidth="575.0" style="-fx-text-alignment: center; -fx-background-color: #7a0018; -fx-border-color: #000000; -fx-control-inner-background: #7a0018; -fx-text-fill: #fefd0b;" stylesheets="@../application.css">
+         <font>
+            <Font name="Matura MT Script Capitals" size="18.0" />
+         </font></TextArea>
       <ImageView fx:id="p1Image" fitHeight="355.0" fitWidth="297.0" layoutX="32.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true" />
       <Text fx:id="p1Value" fill="#378bfc" layoutX="152.0" layoutY="559.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="57.0">
          <font>
@@ -25,15 +31,26 @@
          </font>
       </Text>
       <ImageView fx:id="p2Image" fitHeight="355.0" fitWidth="297.0" layoutX="468.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true" />
-      <Text fx:id="p2Value" fill="#378bfc" layoutX="588.0" layoutY="559.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="57.0">
+      <Text fx:id="p2Value" fill="#378bfc" layoutX="588.0" layoutY="559.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-border-color: #000000;" textAlignment="CENTER" wrappingWidth="57.0">
          <font>
             <Font name="Matura MT Script Capitals" size="42.0" />
          </font>
       </Text>
-      <ProgressBar fx:id="p1HP" layoutX="66.0" layoutY="182.0" prefHeight="38.0" prefWidth="229.0" progress="0.0" />
-      <Text fx:id="p1HText" layoutX="66.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER" wrappingWidth="229.0" />
-      <ProgressBar fx:id="p2HP" layoutX="502.0" layoutY="182.0" prefHeight="38.0" prefWidth="229.0" progress="0.0" />
-      <Text fx:id="p2HText" layoutX="502.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 2" textAlignment="CENTER" wrappingWidth="229.0" />
+      <ProgressBar fx:id="p1HP" layoutX="66.0" layoutY="182.0" prefHeight="38.0" prefWidth="229.0" progress="0.0" style="-fx-border-color: #000000; -fx-background-color: #7a0018;" />
+      <Text fx:id="p1HText" layoutX="66.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER" wrappingWidth="229.0">
+         <font>
+            <Font name="Matura MT Script Capitals" size="29.0" />
+         </font></Text>
+      <ProgressBar fx:id="p2HP" layoutX="502.0" layoutY="182.0" prefHeight="38.0" prefWidth="229.0" progress="0.0" style="-fx-border-color: #000000; -fx-background-color: #7a0018;" />
+      <Text fx:id="p2HText" layoutX="502.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 2" textAlignment="CENTER" wrappingWidth="229.0">
+         <font>
+            <Font name="Matura MT Script Capitals" size="29.0" />
+         </font></Text>
       <Button fx:id="pLoseButton" layoutY="-1.0" mnemonicParsing="false" onAction="#handlePLose" text="pLose" visible="false" />
+      <ImageView fitHeight="365.0" fitWidth="411.0" layoutX="194.0" layoutY="-74.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../pictures/duel.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
