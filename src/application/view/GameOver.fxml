@@ -23,7 +23,6 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button fx:id="submit" layoutX="563.0" layoutY="257.0" mnemonicParsing="false" onAction="#submit" text="Submit" />
       <TextField fx:id="nameInput" layoutX="190.0" layoutY="257.0" promptText="name" />
       <TextField fx:id="scoreInput" layoutX="377.0" layoutY="257.0" promptText="Score" />
       <Label fx:id="playerWinLabel" alignment="CENTER" layoutX="129.0" layoutY="200.0" prefHeight="20.0" prefWidth="545.0" textFill="#feff0b">
@@ -39,6 +38,11 @@
       <ImageView fitHeight="102.0" fitWidth="480.0" layoutX="161.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../pictures/enternameandscore.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="submit" fitHeight="68.0" fitWidth="142.0" layoutX="564.0" layoutY="245.0" onMouseClicked="#submit" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../pictures/submit.png" />
          </image>
       </ImageView>
    </children>

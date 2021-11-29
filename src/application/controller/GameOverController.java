@@ -39,6 +39,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -55,7 +57,7 @@ public class GameOverController {
 	//Media audio = null;
 	 
 	@FXML
-	private Button submit;
+	private ImageView submit;
 	
     @FXML
     private TextField nameInput;
@@ -148,7 +150,7 @@ public class GameOverController {
 	 * saved allowing the player name and score to be added to the csv file
 	 */
     @FXML
-    void submit(ActionEvent event) throws IOException {
+    void submit(MouseEvent event) throws IOException {
     playAudio.pause();
     String file = "src/players.csv";
     String name = nameInput.getText();
