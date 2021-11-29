@@ -23,7 +23,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button layoutX="563.0" layoutY="257.0" mnemonicParsing="false" onAction="#submit" text="Submit" />
+      <Button fx:id="submit" layoutX="563.0" layoutY="257.0" mnemonicParsing="false" onAction="#submit" text="Submit" />
       <TextField fx:id="nameInput" layoutX="190.0" layoutY="257.0" promptText="name" />
       <TextField fx:id="scoreInput" layoutX="377.0" layoutY="257.0" promptText="Score" />
       <Label fx:id="playerWinLabel" alignment="CENTER" layoutX="129.0" layoutY="200.0" prefHeight="20.0" prefWidth="545.0" textFill="#feff0b">
