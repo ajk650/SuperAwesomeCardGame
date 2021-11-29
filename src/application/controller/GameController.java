@@ -1,5 +1,16 @@
+/* Group 8
+ * ------------------------------------------
+ * GameController:
+ * This controller controls the game buttons, outputs of text and visible designs of the game.
+ * Players can draw cards and their HP may/may not be reduced based on the conditions
+ * of the cards drawn to the players.
+ * Music played represents a battle theme for the two users who are dueling.
+ */
+
+// imported package
 package application.controller;
 
+// imported libraries
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -46,9 +57,6 @@ public class GameController implements Initializable{
 
     @FXML
     private AnchorPane gameMenu;
-    
-//    @FXML
-//    private Button drawButton;
 
     @FXML
     private ImageView drawButton;
@@ -90,10 +98,17 @@ public class GameController implements Initializable{
   	public BigDecimal p1Health = new BigDecimal(String.format("%.2f", maxHealth)); //set to 2 decimal places and start at 1.0
   	public BigDecimal p2Health = new BigDecimal(String.format("%.2f", maxHealth)); //set to 2 decimal places and start at 1.0
   	public BigDecimal[] pHealth = new BigDecimal[2];
-  	public BigDecimal test = new BigDecimal(String.format("%.2f", 0.00)); //set to 2 decimal places and start at 1.0
+
     @FXML
 	private StackPane stackPane;
 
+    /*
+     * handleDrawButton starts the game off with 2 cards, 1 for each respective player.
+     * Each consists of a % chance of getting Defend, Attack, or Run cards with values 
+     * between 1-10 multiplied times 10. Based on the cards they go through certain
+     * conditions and their output is displayed to the program. A check for health points
+     * is also called to see if any players have fallen.
+     */
     @FXML
     BigDecimal[] handleDrawButton(MouseEvent event) throws FileNotFoundException {
 		Cards p1Card= new Cards();
@@ -105,6 +120,7 @@ public class GameController implements Initializable{
 		p2Card =  p2Card.createCard();
 		Game newGame = new Game();
 		
+		// player1 ATTACK | player2 ATTACK
 		if( p1Card.cardType == "ATTACK" &&  p2Card.cardType == "ATTACK" )
 	    {
 			pHealth = newGame.AttackAttack(p1Card, p2Card, p1Image, p1Value, p2Image, p2Value, outcome, p1HP, p2HP, p1Health, p2Health, pHealth, p1HText, p2HText,maxHealth);
@@ -127,10 +143,8 @@ public class GameController implements Initializable{
 				System.out.println("[**] pLost = " + pLose);
 				pLoseButton.fire();
 			}
-
-			//			newGame.AttackAttack(testCard1,testCard2, player1Card, player2Card, outcome);
-//			return pHealth;
 	    }	
+		// player1 ATTACK | player2 DEFEND
 		else if( p1Card.cardType == "ATTACK" &&  p2Card.cardType == "DEFEND" )
 	    {
 			p2Health = newGame.AttackDefend(p1Card, p2Card, p1Image, p1Value, p2Image, p2Value, outcome, p2HP, p1Health, p2Health, p1HText, p2HText, maxHealth);
@@ -149,8 +163,8 @@ public class GameController implements Initializable{
 			}
 			pHealth[0] = p1Health;
 			pHealth[1] = p2Health;
-//			newGame.AttackDefend(testCard1,testCard2, player1Card, player2Card, outcome);
 	    }
+		// player1 ATTACK | player2 RUN
 		else if( p1Card.cardType == "ATTACK" &&  p2Card.cardType == "RUN" )
 	    {
 			p2Health = newGame.AttackRun(p1Card, p2Card, p1Image, p1Value, p2Image, p2Value, outcome, p2HP, p1Health, p2Health, p1HText, p2HText, maxHealth);
@@ -173,8 +187,8 @@ public class GameController implements Initializable{
 				System.out.println("[**] pLost = " + pLose);
 				pLoseButton.fire();
 			}
-//			newGame.AttackRun(testCard1,testCard2, player1Card, player2Card, outcome);
 	    }
+		// player1 DEFEND | player2 ATTACK
 		else if( p1Card.cardType == "DEFEND" &&  p2Card.cardType == "ATTACK" )
 	    {
 			p1Health = newGame.DefendAttack(p1Card, p2Card, p1Image, p1Value, p2Image, p2Value, outcome, p1HP, p1Health, p2Health, p1HText, p2HText, maxHealth);
@@ -197,8 +211,8 @@ public class GameController implements Initializable{
 				System.out.println("[**] pLost = " + pLose);
 				pLoseButton.fire();
 			}
-//			newGame.DefendAttack(testCard1,testCard2, player1Card, player2Card, outcome);
 	    }
+		// player1 DEFEND | player2 DEFEND
 		else if( p1Card.cardType == "DEFEND" &&  p2Card.cardType == "DEFEND" )
 	    {
 			newGame.DefendDefend(p1Card, p2Card, p1Image, p1Value, p2Image, p2Value, outcome, p1Health, p2Health, p1HText, p2HText, maxHealth);
@@ -221,10 +235,8 @@ public class GameController implements Initializable{
 				System.out.println("[**] pLost = " + pLose);
 				pLoseButton.fire();
 			}
-//			pHealth[0] = p1Health;
-//			pHealth[1] = p2Health;
-//			newGame.DefendDefend(testCard1,testCard2, player1Card, player2Card, outcome);
 	    }
+		// player1 DEFEND | player2 RUN
 		else if( p1Card.cardType == "DEFEND" &&  p2Card.cardType == "RUN" )
 	    {
 			newGame.DefendRun(p1Card, p2Card, p1Image, p1Value, p2Image, p2Value, outcome, p1Health, p2Health, p1HText, p2HText, maxHealth);
@@ -247,8 +259,8 @@ public class GameController implements Initializable{
 				System.out.println("[**] pLost = " + pLose);
 				pLoseButton.fire();
 			}
-//			newGame.DefendRun(testCard1,testCard2, player1Card, player2Card, outcome);
 	    }
+		// player1 RUN | player2 ATTACK
 		else if( p1Card.cardType == "RUN" &&  p2Card.cardType == "ATTACK" )
 	    {
 			p1Health = newGame.RunAttack(p1Card, p2Card, p1Image, p1Value, p2Image, p2Value, outcome, p1HP, p1Health, p2Health, p1HText, p2HText, maxHealth);
@@ -271,8 +283,8 @@ public class GameController implements Initializable{
 				System.out.println("[**] pLost = " + pLose);
 				pLoseButton.fire();
 			}
-//			newGame.RunRun(testCard1,testCard2, player1Card, player2Card, outcome);
 	    }
+		// player1 RUN | player2 DEFEND
 		else if( p1Card.cardType == "RUN" &&  p2Card.cardType == "DEFEND" )
 	    {
 			newGame.RunDefend(p1Card, p2Card, p1Image, p1Value, p2Image, p2Value, outcome, p1Health, p2Health, p1HText, p2HText, maxHealth);
@@ -295,8 +307,8 @@ public class GameController implements Initializable{
 				System.out.println("[**] pLost = " + pLose);
 				pLoseButton.fire();
 			}
-//			newGame.RunRun(testCard1,testCard2, player1Card, player2Card, outcome);
 	    }
+		// player1 RUN | player2 RUN
 		else if( p1Card.cardType == "RUN" &&  p2Card.cardType == "RUN" )
 	    {
 			newGame.RunRun(p1Card, p2Card, p1Image, p1Value, p2Image, p2Value, outcome, p1Health, p2Health, p1HText, p2HText, maxHealth);
@@ -320,22 +332,15 @@ public class GameController implements Initializable{
 				System.out.println("[**] pLost = " + pLose);
 				pLoseButton.fire();
 			}
-//			newGame.RunRun(testCard1,testCard2, player1Card, player2Card, outcome);
 	    }
 		return pHealth;
 		
 		
     }
-//	@FXML
-//	private void endGame(ActionEvent event) throws IOException {
-//		  URL url = new File("src/GameOver.fxml").toURI().toURL();
-//		  AnchorPane root = FXMLLoader.load(url);
-//		  stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-//		  scene = new Scene(root);
-//		  stage.setScene(scene);
-//		  stage.show();
-//	}
 
+    /*
+     * handlePLose sends the user to a game over screen once a player has lost
+     */
     @FXML
     private void handlePLose(ActionEvent event) throws IOException {
     	System.out.println("[**] A player has lost.");
@@ -354,15 +359,13 @@ public class GameController implements Initializable{
         window.show();	
     }
     
+    // Override initialize method
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		p1HP.setStyle("-fx-accent: #1dc582");		//can also use hex values
 		p1HP.setProgress(p1Health.doubleValue()); 	// range from 0.0 - 1.0
 		p2HP.setStyle("-fx-accent: #1dc582");		//can also use hex values
 		p2HP.setProgress(p2Health.doubleValue()); 	// range from 0.0 - 1.0
-		if((test.doubleValue()*100) <= 0) {
-			System.out.println("Test game over | test = " + test.doubleValue()*100 + " < 0");
-		}
 		try {
 			playAudio = play(playAudio, "battletheme.mp3");
 		} catch (MalformedURLException e) {
@@ -371,6 +374,7 @@ public class GameController implements Initializable{
 		}
 	}
 	
+	// Take in a MediaPlayer and string to the audio track and play the specified audio
 	public MediaPlayer play(MediaPlayer playAudio, String audioTrack) throws MalformedURLException {
 		
 		URL url = new File("resources/audio/" + audioTrack).toURI().toURL();
@@ -379,7 +383,7 @@ public class GameController implements Initializable{
 		audio = new Media(url.toString());
 		
 		playAudio = new MediaPlayer(audio);
-		playAudio.setVolume(0.15);
+		playAudio.setVolume(0.2);
 		playAudio.play();
 //		System.out.println("[**] playAudio play: " + playAudio);
 		return playAudio;

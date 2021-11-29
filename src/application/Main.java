@@ -1,15 +1,22 @@
+/* Group 8
+ * ------------------------------------------
+ * Main:
+ * This class handles the launching of the application/game. The user will be taken to the 
+ * main menu where they will have a choice between starting the game or going to the
+ * leaderboards to see other users.
+ */
+
+// imported packages
 package application;
-	
+
+// imported libraries
 import java.io.File;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.fxml.FXMLLoader;
 
 

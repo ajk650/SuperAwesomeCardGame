@@ -1,1 +1,13 @@
-# This is the readme for Super Cool Card Game!
+# Super Omega Awesome Card Game Battles
+- Name of your team:
+    - Chris & Co
+- Full names of all team members:
+    - Christopher Ayo
+    - Chris Cordova
+    - Chris Ayala
+    - Michael Jaeschke
+    - Erasmo Sanchez
+- Short description of application:
+    - Super Omega Awesome Card Game Battles is a game with 8-bit medieval styled designs where two players can duel. Using cards, both players draw a single card at a time and play their "Turn". Based on their face card values and their card types, will decide each of the player's fates. If a player loses all of their health, the other player reigns victorious and submit their name onto the leaderboard in hopes they can brag that they've defeated their opponent with the most health left.
+- Known bugs:
+    - Currently no known bugs.

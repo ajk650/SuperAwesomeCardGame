@@ -1,19 +1,26 @@
+/* Group 8
+ * ------------------------------------------
+ * MainController:
+ * This controller controls the ability to swap to the game scene or the leader board scenes.
+ * Music also plays a theme song whenever the main menu is chosen or is set.
+ */
+
+// imported packages
 package application.controller;
 
+// imported libraries
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -35,6 +42,9 @@ public class MainMenuController implements Initializable{
     public MediaPlayer playAudio;
     public Media audio;
 
+    /* startHandle method changes to the duel screen to start the game when the start 
+     * button is clicked
+     */
     @FXML
     void startHandle(MouseEvent event) throws IOException {
     	System.out.println("Game Start Button");
@@ -51,6 +61,7 @@ public class MainMenuController implements Initializable{
         window.show();	
     }
 
+    //  leaderHandle method changes to the leaderboard screen when the button is pressed
     @FXML
     void leaderHandle(MouseEvent event) throws IOException {
     	System.out.println("Leaderboard Button");
@@ -67,7 +78,7 @@ public class MainMenuController implements Initializable{
         window.show();	
     }
 
-
+	// Take in a MediaPlayer and string to the audio track and play the specified audio
 	public MediaPlayer play(MediaPlayer playAudio, String audioTrack) throws MalformedURLException {
 		
 		URL url = new File("resources/audio/" + audioTrack).toURI().toURL();
@@ -76,13 +87,13 @@ public class MainMenuController implements Initializable{
 		audio = new Media(url.toString());
 		
 		playAudio = new MediaPlayer(audio);
-		playAudio.setVolume(0.15);
+		playAudio.setVolume(0.2);
 		playAudio.play();
 //		System.out.println("[**] playAudio play: " + playAudio);
 		return playAudio;
 	}
 
-
+	// Override initialize method
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub

@@ -1,5 +1,16 @@
+/* Group 8
+ * ------------------------------------------
+ * LeaderboardController:
+ * This controller controls the leaderboard portions after being chosen from the main menu.
+ * A CSV file is opened and read showing all of the players who have won and their
+ * respective scores.
+ * Music played represents an tavern-like theme where the user gets to rest and lookaround.
+ */
+
+// imported packages
 package application.controller;
 
+// imported libraries
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -21,6 +32,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -31,10 +44,10 @@ public class LeaderboardController {
 	private AnchorPane mainPane2;
 
 	@FXML
-	private Label gameOverLabel;
-
-	@FXML
 	private AnchorPane pane;
+	
+    @FXML
+    private ImageView MainMenuButton;
 
 	@FXML
 	private TableColumn<String, Player> nameColumn;
@@ -50,6 +63,9 @@ public class LeaderboardController {
 
 	// public ArrayList<Player> players;
 
+	/* on start load in data from the csv file and print them to the table view 
+	 * columns named player and score and sorts them by player score
+	 */
 	public void initialize() throws FileNotFoundException {
 		try {
 			playAudio = play(playAudio, "leaderboard.wav");
@@ -89,7 +105,8 @@ public class LeaderboardController {
 
 	}
 
-	public void handleMainMenuButton(ActionEvent event) throws IOException {
+	// handleMainMenuButton sends the user back to the main menu page
+	public void handleMainMenuButton(MouseEvent event) throws IOException {
 		playAudio.pause();
 		URL url = new File("src/application/view/mainmenu.fxml").toURI().toURL();
 		mainPane2 = FXMLLoader.load(url);
@@ -99,6 +116,7 @@ public class LeaderboardController {
 		window.show();
 	}
 	
+	// Take in a MediaPlayer and string to the audio track and play the specified audio
 	public MediaPlayer play(MediaPlayer playAudio, String audioTrack) throws MalformedURLException {
 		
 		URL url = new File("resources/audio/" + audioTrack).toURI().toURL();
@@ -107,7 +125,7 @@ public class LeaderboardController {
 		audio = new Media(url.toString());
 		
 		playAudio = new MediaPlayer(audio);
-		playAudio.setVolume(0.15);
+		playAudio.setVolume(0.2);
 		playAudio.play();
 //		System.out.println("[**] playAudio play: " + playAudio);
 		return playAudio;

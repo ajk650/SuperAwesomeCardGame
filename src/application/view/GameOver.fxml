@@ -14,11 +14,6 @@
             <Image url="@../../../pictures/gameover.png" />
          </image>
       </ImageView>
-      <Label fx:id="gameOverLabel" contentDisplay="CENTER" layoutX="205.0" layoutY="85.0" opacity="0.7" text="Game Over" textFill="#e80000">
-         <font>
-            <Font name="Copperplate Gothic Bold" size="64.0" />
-         </font>
-      </Label>
       <TableView fx:id="leaderboardTable" layoutX="101.0" layoutY="336.0" prefHeight="302.0" prefWidth="600.0">
         <columns>
           <TableColumn fx:id="nameColumn" prefWidth="300.0" resizable="false" text="WARRIOR" />
@@ -29,16 +24,22 @@
          </columnResizePolicy>
       </TableView>
       <Button layoutX="563.0" layoutY="257.0" mnemonicParsing="false" onAction="#submit" text="Submit" />
-      <Label fx:id="gameOverLabel" alignment="CENTER" layoutX="283.0" layoutY="158.0" prefHeight="17.0" prefWidth="218.0" text="enter your name and score" textFill="#e80000">
-         <font>
-            <Font name="Copperplate Gothic Bold" size="12.0" />
-         </font></Label>
       <TextField fx:id="nameInput" layoutX="190.0" layoutY="257.0" promptText="name" />
       <TextField fx:id="scoreInput" layoutX="377.0" layoutY="257.0" promptText="Score" />
-      <Label fx:id="playerWinLabel" alignment="CENTER" layoutX="128.0" layoutY="201.0" prefHeight="20.0" prefWidth="545.0" textFill="#feff0b">
+      <Label fx:id="playerWinLabel" alignment="CENTER" layoutX="129.0" layoutY="200.0" prefHeight="20.0" prefWidth="545.0" textFill="#feff0b">
          <font>
             <Font name="Copperplate Gothic Bold" size="17.0" />
          </font>
       </Label>
+      <ImageView fitHeight="135.0" fitWidth="403.0" layoutX="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../pictures/gameoverheader.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="102.0" fitWidth="480.0" layoutX="161.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../pictures/enternameandscore.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

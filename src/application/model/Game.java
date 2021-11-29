@@ -1,36 +1,38 @@
+/* Group 8
+ * ------------------------------------------
+ * Game:
+ * This class handles the overall game structure and the many various conditions a draw can have.
+ * This class also handles the decreasing of hp based on whether a player takes damage.
+ */
+
+// imported packages
 package application.model;
 
-import java.io.File;
+// imported libraries
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.net.URL;
 
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.JavaFXBuilderFactory;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
+
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 public class Game {
-	private Stage stage;
 	//The BigDecimal(BD) class gives its user complete control over rounding behavior
 //  	BigDecimal p1Health = new BigDecimal(String.format("%.2f", 1.0)); //set to 2 decimal places and start at 1.0
 //  	BigDecimal p2Health = new BigDecimal(String.format("%.2f", 1.0)); //set to 2 decimal places and start at 1.0
 //  	BigDecimal[] pHealth = new BigDecimal[2];
-	BigDecimal y = new BigDecimal("100");
-	BigDecimal x = new BigDecimal("0");
+	public BigDecimal y = new BigDecimal("100");
+	public BigDecimal x = new BigDecimal("0");
 	
+	/*
+	 * Case in which player 1 and player 2 have attack cards. Both players will attack each other
+	 * and lower each other's health bars
+	 */
 	public BigDecimal[] AttackAttack(Cards p1Card, Cards p2Card, ImageView p1Image, Text p1Value, ImageView p2Image, Text p2Value, TextArea outcome, ProgressBar p1hp, ProgressBar p2hp, BigDecimal p1Health, BigDecimal p2Health, BigDecimal[] pHealth, Text p1HText, Text p2HText, double maxHealth) throws FileNotFoundException {
 //	public void AttackAttack(Cards testCard1, Cards testCard2, TextArea player1Card, TextArea player2Card, TextArea outcome) {
 		if( p1Card.value > p2Card.value) {
@@ -144,12 +146,15 @@ public class Game {
 		}
 		
 		return pHealth;
-	}
+	}	
 	
+	/*
+	 * Case in which player 1 has ATTACK and player 2 has DEFEND. Player 1 can only damage if their
+	 * card is higher than player 2's. Otherwise, player 2 can absorb all the damage or absorb only some.
+	 */
 	public BigDecimal AttackDefend(Cards p1Card, Cards p2Card, ImageView p1Image, Text p1Value, ImageView p2Image, Text p2Value, TextArea outcome, ProgressBar p2hp, BigDecimal p1Health, BigDecimal p2Health, Text p1HText, Text p2HText, double maxHealth) throws FileNotFoundException {
-//	public void AttackDefend(Cards testCard1, Cards testCard2, TextArea player1Card, TextArea player2Card, TextArea outcome) {
 		int dmgDiff1 = p1Card.value - p2Card.value;
-		int dmgDiff2 = p2Card.value - p1Card.value;
+//		int dmgDiff2 = p2Card.value - p1Card.value;
 		System.out.println("[**] Player1 ATTACKs and Player2 DEFENDs");
 		if( p1Card.value > p2Card.value) {
 //			System.out.println("[**] Player1 hits for " + testCard1.value + "HP!");
@@ -264,6 +269,11 @@ public class Game {
 		
 		return p2Health;
 	}
+	
+	/*
+	 * Case in which player 1 has ATTACK and player 2 has RUN. Player 1 can only damage if their
+	 * card is higher than player 2's. Otherwise, player 2 can run away or dodge the attack.
+	 */
 	public BigDecimal AttackRun(Cards p1Card, Cards p2Card, ImageView p1Image, Text p1Value, ImageView p2Image, Text p2Value, TextArea outcome, ProgressBar p2hp, BigDecimal p1Health, BigDecimal p2Health, Text p1HText, Text p2HText, double maxHealth) throws FileNotFoundException {
 //	public void AttackRun(Cards testCard1, Cards testCard2, TextArea player1Card, TextArea player2Card, TextArea outcome) {
 		System.out.println("[**] Player1 ATTACKs and Player2 RUNs");
@@ -371,6 +381,11 @@ public class Game {
 		}
 		return p2Health;
 	}
+	
+	/*
+	 * Case in which player 1 has DEFEND and player 2 has ATTACK. Player 2 can only damage if their
+	 * card is higher than player 2's. Otherwise, player 1 can absorb all the damage or take partial damage
+	 */
 	public BigDecimal DefendAttack(Cards p1Card, Cards p2Card, ImageView p1Image, Text p1Value, ImageView p2Image, Text p2Value, TextArea outcome, ProgressBar p1hp, BigDecimal p1Health, BigDecimal p2Health, Text p1HText, Text p2HText, double maxHealth) throws FileNotFoundException {
 //	public void DefendAttack(Cards testCard1, Cards testCard2, TextArea player1Card, TextArea player2Card, TextArea outcome) {
 		int dmgDiff1 = p1Card.value - p2Card.value;
@@ -486,6 +501,11 @@ public class Game {
 		
 		return p1Health;
 	}
+	
+	/*
+	 * Case in which player 1 has DEFEND and player 2 has DEFEND.
+	 * Both players defend and nothing happens
+	 */
 	public void DefendDefend(Cards p1Card, Cards p2Card, ImageView p1Image, Text p1Value, ImageView p2Image, Text p2Value, TextArea outcome, BigDecimal p1Health, BigDecimal p2Health, Text p1HText, Text p2HText, double maxHealth) throws FileNotFoundException {
 //	public void DefendDefend(Cards testCard1, Cards testCard2, TextArea player1Card, TextArea player2Card, TextArea outcome) {
 		System.out.println("[**] Player1 defends for " + p1Card.value + "HP!");
@@ -518,6 +538,11 @@ public class Game {
 				"Both players defend! No damage taken!"
 		);
 	}
+	
+	/*
+	 * Case in which player 1 has DEFEND and player 2 has RUN.
+	 * 1 player defends and the other runs. player2 has a chance at not being able to run
+	 */
 	public void DefendRun(Cards p1Card, Cards p2Card, ImageView p1Image, Text p1Value, ImageView p2Image, Text p2Value, TextArea outcome, BigDecimal p1Health, BigDecimal p2Health, Text p1HText, Text p2HText, double maxHealth) throws FileNotFoundException {
 //	public void DefendRun(Cards testCard1, Cards testCard2, TextArea player1Card, TextArea player2Card, TextArea outcome) {
 		System.out.println("[**] Player1 DEFENDs and Player2 RUNs");
@@ -581,7 +606,7 @@ public class Game {
 //	    	p2HText.setText("Player 2 - " + (p2Health.multiply(y).setScale(0, RoundingMode.DOWN)) + "/" + (int)(maxHealth*100));
 			outcome.setText(
 					"Player1 defends for " + p1Card.value + "hp! \r\n" +
-					"Player2 escapes the oncoming attack! \r\n" + 
+					"Player2 escapes! \r\n" + 
 					"Player2 wins the round!"
 			);
 		}
@@ -618,6 +643,12 @@ public class Game {
 			);	
 		}
 	}
+	
+	/*
+	 * Case in which player 1 has RUN and player 2 has ATTACK. Player 2 can only deal damage
+	 * granted that their card is higher than player 1's. Otherwise, player 1 can dodge the attack
+	 * or run away.
+	 */
 	public BigDecimal RunAttack(Cards p1Card, Cards p2Card, ImageView p1Image, Text p1Value, ImageView p2Image, Text p2Value, TextArea outcome, ProgressBar p1hp, BigDecimal p1Health, BigDecimal p2Health, Text p1HText, Text p2HText, double maxHealth) throws FileNotFoundException {
 //		public void RunRun(Cards testCard1, Cards testCard2, TextArea player1Card, TextArea player2Card, TextArea outcome) {
 		System.out.println("[**] Player1 RUNs and Player2 ATTACKs");
@@ -724,6 +755,11 @@ public class Game {
 		
 		return p1Health;
 	}
+	
+	/*
+	 * Case in which player 1 has RUN and player 2 has DEFEND. 
+	 * Player 1 can run or miss their chance to esacep while player 2 can only defend
+	 */
 	public void RunDefend(Cards p1Card, Cards p2Card, ImageView p1Image, Text p1Value, ImageView p2Image, Text p2Value, TextArea outcome, BigDecimal p1Health, BigDecimal p2Health, Text p1HText, Text p2HText, double maxHealth) throws FileNotFoundException {
 //		public void RunRun(Cards testCard1, Cards testCard2, TextArea player1Card, TextArea player2Card, TextArea outcome) {
 //			System.out.println("[**] Player1 RUNs and Player2 RUNs");
@@ -759,6 +795,11 @@ public class Game {
 					"No damage taken!"
 			);
 	}
+	
+	/*
+	 * Case in which player 1 has RUN and player 2 has RUN. 
+	 * Both players escape if both players run.
+	 */
 	public void RunRun(Cards p1Card, Cards p2Card, ImageView p1Image, Text p1Value, ImageView p2Image, Text p2Value, TextArea outcome, BigDecimal p1Health, BigDecimal p2Health, Text p1HText, Text p2HText, double maxHealth) throws FileNotFoundException {
 //	public void RunRun(Cards testCard1, Cards testCard2, TextArea player1Card, TextArea player2Card, TextArea outcome) {
 //		System.out.println("[**] Player1 RUNs and Player2 RUNs");
@@ -809,6 +850,10 @@ public class Game {
 		return playerHealth;
 	}
 
+	/*
+	 * hpCheck does a check on whether the player's health is less than or equal to 0.
+	 * If there is a player(s) that are less than or equal to 0, return an int.
+	 */
 	 public int hpCheck(BigDecimal p1Health, BigDecimal p2Health, int pLose){
 		 if((p1Health.doubleValue()*100) <= 0){
 			 System.out.println("[**] Player 1 has FALLEN. Player 2 WINS! GAME OVER!");
@@ -837,7 +882,4 @@ public class Game {
 		 return pLose;
 	}
 	 
-//	public void replaceSceneContent(String fxml) {
-//		
-//	}
 }

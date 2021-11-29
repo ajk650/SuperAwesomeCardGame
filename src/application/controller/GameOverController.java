@@ -1,5 +1,17 @@
+/* Group 8
+ * ------------------------------------------
+ * GameOverController:
+ * This controller controls the ending portions of the game once it has ended.
+ * A CSV file is opened and read along with the ability of the winning player
+ * to enter their name and score based on the results.
+ * Music played represents an end game theme with a % chance of getting a
+ * "special theme" song.
+ */
+
+// imported packages
 package application.controller;
 
+// imported libraries
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -44,8 +56,6 @@ public class GameOverController {
     private TextField nameInput;
     @FXML
     private TextField scoreInput;
-	@FXML
-	private Label gameOverLabel;
 
     @FXML
     private Label playerWinLabel;
@@ -63,6 +73,10 @@ public class GameOverController {
 	private TableColumn<Player, String> scoreColumn;
 
 	// public ArrayList<Player> players;
+	
+	/* on start load in data from the csv file and print them to the table view 
+	 * columns named player and score and sorts them by player score
+	 */
 	@FXML
 	public void initialize() throws FileNotFoundException, MalformedURLException {
 		Random rand = new Random();
@@ -102,6 +116,10 @@ public class GameOverController {
 
 	}
 
+	/* Do a player check on hp, if player1 loses, return an int value and setText stating
+	 * player2 has won, if player2 loses, return an int value and setTExt stating player1
+	 * has won. Else if both lose, state that both players have lost and return an int value
+	 */
 	void hpScore(int pLose, BigDecimal[] pHealth) {
 		if(pLose == 1) {
 			pLoseScore = (int)(pHealth[1].doubleValue()*100 - pHealth[0].doubleValue()*100);
@@ -120,6 +138,10 @@ public class GameOverController {
 		scoreInput.setText(score);
 	}
 	
+	/*reads in input from the user prompting them for their name the score is brought in 
+	 * from the actual game already 
+	 * saved allowing the player name and score to be added to the csv file
+	 */
     @FXML
     void submit(ActionEvent event) throws IOException {
     playAudio.pause();
@@ -137,6 +159,8 @@ public class GameOverController {
 	stage.setScene(scene);
 	stage.show();
     }
+    
+    // the function that allows the player to save their name and score to the csv file
 	public void savePlayerScore(String name,String score, String file) {
 		try {
 			
@@ -152,6 +176,7 @@ public class GameOverController {
 		}
 	}
 	
+	 // Take in a MediaPlayer and string to the audio track and play the specified audio
 	public MediaPlayer play(MediaPlayer playAudio, String audioTrack) throws MalformedURLException {
 		
 		URL url = new File("resources/audio/" + audioTrack).toURI().toURL();
