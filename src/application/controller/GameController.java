@@ -366,6 +366,7 @@ public class GameController implements Initializable{
 		p1HP.setProgress(p1Health.doubleValue()); 	// range from 0.0 - 1.0
 		p2HP.setStyle("-fx-accent: #1dc582");		//can also use hex values
 		p2HP.setProgress(p2Health.doubleValue()); 	// range from 0.0 - 1.0
+		outcome.setEditable(false);
 		try {
 			playAudio = play(playAudio, "battletheme.mp3");
 		} catch (MalformedURLException e) {
