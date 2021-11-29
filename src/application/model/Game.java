@@ -855,17 +855,9 @@ public class Game {
 	 * If there is a player(s) that are less than or equal to 0, return an int.
 	 */
 	 public int hpCheck(BigDecimal p1Health, BigDecimal p2Health, int pLose){
-		 if((p1Health.doubleValue()*100) <= 0){
-			 System.out.println("[**] Player 1 has FALLEN. Player 2 WINS! GAME OVER!");
-			 pLose = 1;
-		 }
-		 else if((p2Health.doubleValue()*100) <= 0){
-			 System.out.println("[**] Player 2 has FALLEN. Player 1 WINS! GAME OVER!");
-			 pLose = 2;
-		 }
-		 else if(((p1Health.doubleValue()*100) <= 0) && ((p2Health.doubleValue()*100) <= 0)) {
+		 if(((p1Health.doubleValue()*100) <= 0) && ((p2Health.doubleValue()*100) <= 0)) {
 			 // in (-) numbers, if p1Health is smaller than p2Health | i.e. -0.20 < -0.15 | p1 loses
-			 if(p1Health.doubleValue()*100 < p2Health.doubleValue()*100) {
+			 if((p1Health.doubleValue()*100) < (p2Health.doubleValue()*100)) {
 				 System.out.println("[**] Player 1 has FALLEN. Player 2 WINS! GAME OVER!");
 				 pLose = 1;
 			 }
@@ -874,11 +866,20 @@ public class Game {
 				 System.out.println("[**] Player 2 has FALLEN. Player 1 WINS! GAME OVER!");
 				 pLose = 2;
 			 }
-			 else if((p2Health.doubleValue()*100) == (p1Health.doubleValue()*100)) {
+			 else if((p1Health.doubleValue()*100) == (p2Health.doubleValue()*100)) {
 				 System.out.println("[**] BOTH Players have FALLEN. No winner! GAME OVER!");
 				 pLose = 3;
 			 }
 		 }
+		 else if((p1Health.doubleValue()*100) <= 0 && (p2Health.doubleValue()*100) > 0){
+			 System.out.println("[**] Player 1 has FALLEN. Player 2 WINS! GAME OVER!");
+			 pLose = 1;
+		 }
+		 else if((p2Health.doubleValue()*100) <= 0 && (p1Health.doubleValue()*100) > 0){
+			 System.out.println("[**] Player 2 has FALLEN. Player 1 WINS! GAME OVER!");
+			 pLose = 2;
+		 }
+		 
 		 return pLose;
 	}
 	 
